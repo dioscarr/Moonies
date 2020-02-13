@@ -19,5 +19,5 @@ jobs:
       uses: azure/webapps-deploy@v1
       with: 
         app-name: Moonies # Replace with your app name
-        publish-profile: $ # Define secret variable in repository settings as per action documentation
+        publish-profile: ${{ secrets.publish_profile }} # Define secret variable in repository settings as per action documentation
         package: './Moonies' 
