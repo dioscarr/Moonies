@@ -1,0 +1,82 @@
+
+.funditems
+{
+  height:var(--actsGridHeight);
+  border: 4px solid #f4f4f4;
+  padding:var(--Acts-Box-Padding);
+  border-radius: 12px;
+  background-color: #f6f6f6;
+  font-size: 1.2em;
+  color: #4b4b4b;
+  font-weight: 600;
+  display: grid;
+  grid-template-areas:var(--actsGrid);
+  grid-template-columns:var(--actsGridColumns);
+  grid-template-rows: var(--actsGridRows);
+  box-shadow: -8px -7px 10px 0px #ffffff, 7px 8px 20px 0px #dad9d9;
+
+}
+.fundLName{
+  grid-area:gFN;
+  justify-self: var(--acts-grid-area-gFN-justify);
+  align-self: var(--acts-grid-area-gNF-align);
+}
+.fundLBalanceDate{
+  grid-area:gDat;
+  justify-self: var(--acts-grid-area-gDat-justify);
+  align-self:var(--acts-grid-area-gDat-align);
+}
+.fundLBalance{
+  grid-area:gBal;
+  justify-self: var(--acts-grid-area-gBal-justify);
+  align-self: var(--acts-grid-area-gBal-align);
+  color: #8BC34A;
+  font-size:20px;
+  font-weight:900;
+  letter-spacing: .55px;;
+}
+.fundIName{
+  grid-area:gIna;
+  width:100%;
+  justify-self: var(--acts-grid-area-gIna-justify);
+  align-self:var(--acts-grid-area-gIna-align);
+}
+.btnfundUpdate{
+  grid-area:gbUp;
+  justify-self: var(--acts-grid-area-gbUp-justify);
+  align-self:var(--acts-grid-area-gbUp-align);
+}
+.btnFundRemove{
+  grid-area:gDel;
+  justify-self: var(--acts-grid-area-gDel-justify);
+  align-self:var(--acts-grid-area-gDel-align);
+}
+.isActiveToggle
+{
+  grid-area:gAct;
+  justify-self: var(--acts-grid-area-gAct-justify);
+  align-self: var(--acts-grid-area-gAct-align);
+}
+
+
+.funditems input{
+  font-size:1vw;
+  text-align:bottom;
+  height:30px;
+  border:none;
+  border-radius:12px;
+  width:100%;
+  background-color: #587a8f;
+  border: 1px solid #96a2aa;
+  padding-left:20px;
+  padding-right:20px;
+  text-align: right;
+}
+
+.funditems input:focus{
+  outline:none;
+  background-color: white;
+  color:blue;
+  font-size:20px;
+  text-align: center;
+}
