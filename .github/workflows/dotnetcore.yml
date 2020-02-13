@@ -15,3 +15,9 @@ jobs:
         dotnet-version: 3.1.100
     - name: Build with dotnet
       run: dotnet build --configuration Release
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v1
+      with: 
+        app-name: Moonies # Replace with your app name
+        publish-profile: $ # Define secret variable in repository settings as per action documentation
+        package: './Moonies' 
