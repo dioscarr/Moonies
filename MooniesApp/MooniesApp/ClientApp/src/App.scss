@@ -1,0 +1,406 @@
+*{
+  margin:0px;
+  padding:0px;
+  box-sizing: border-box;
+}
+
+:root{
+  --primary-background-color:#f6f6f6;
+  --acts-cardlist-layout-text-color:red;
+  --text-color:#96a2aa;
+  --HeaderRoot-bk-color:#f6f6f6;
+  --ManageFundsRoot-bk-color:#f6f6f6;
+  --ManageFundsRoot-text-color:#96a2aa;
+  --ToolsBarRoot-bk-color:#d2d7db;
+
+
+
+  --ActsBox:repeat(auto-fit, minmax(320px, 1fr));
+  --Acts-Box-Padding:30px;
+
+  --actsGrid:
+  'gFN gFN gDat'
+  '. gBal .'
+  '. gIna gbUp'
+  'gDel gAct gAct';
+  --actsGridHeight:28vh;
+  --actsGridColumns:2fr 4fr 2fr;
+  --actsGridRows:4fr auto 4fr 5fr;
+
+  --acts-grid-area-gNF-align:center;
+  --acts-grid-area-gDat-align:start;
+  --acts-grid-area-gBal-align:center;
+  --acts-grid-area-gIna-align:center;
+  --acts-grid-area-gbUp-align:center;
+  --acts-grid-area-gDel-align:end;
+  --acts-grid-area-gAct-align:end;
+
+  --acts-grid-area-gFN-justify:start;
+  --acts-grid-area-gDat-justify:center;
+  --acts-grid-area-gBal-justify:center;
+  --acts-grid-area-gIna-justify:center;
+  --acts-grid-area-gbUp-justify:end;
+  --acts-grid-area-gDel-justify:start;
+  --acts-grid-area-gAct-justify:center;
+}
+
+[data-theme="dark"]{
+  --primary-background-color:white;
+  --acts-cardlist-layout-text-color:black;
+  --text-color:#c7c7c7;
+  --HeaderRoot-bk-color:#173855;
+  --ManageFundsRoot-bk-color:#173855;
+  --ManageFundsRoot-text-color:#96a2aa;
+  --ToolsBarRoot-bk-color:#d2d7db;
+
+}
+
+[data-accounts-layout="list"]
+{
+  --ActsBox:repeat(auto-fit, minmax(100%, 1fr));
+  --Acts-Box-Padding:10px 30px;
+
+  --actsGrid:'gFN gDat gBal gIna gbUp gDel gAct';
+  --actsGridHeight:10vh;
+  --actsGridColumns:1fr 1fr 1fr 1fr 2fr 2fr 1fr;
+  --actsGridRows:1fr;
+
+  --acts-grid-area-gFN-align:end;
+  --acts-grid-area-gDat-align:center;
+  --acts-grid-area-gBal-align:center;
+  --acts-grid-area-gIna-align:center;
+  --acts-grid-area-gbUp-align:center;
+  --acts-grid-area-gDel-align:center;
+  --acts-grid-area-gAct-align:center;
+
+  --acts-grid-area-gFN-justify:center;
+  --acts-grid-area-gDat-justify:center;
+  --acts-grid-area-gBal-justify:center;
+  --acts-grid-area-gIna-justify:center;
+  --acts-grid-area-gbUp-justify:center;
+  --acts-grid-area-gDel-justify:center;
+  --acts-grid-area-gAct-justify:center;
+}
+
+.acts_layout
+{
+  color: var(--acts-cardlist-layout-text-color);
+}
+
+
+.Dark-Mode{
+  background-color:var(--primary-background-color);
+
+}
+
+.Light-Mode
+{
+  background-color:var(--primary-background-color);
+  color:#252525;
+}
+
+/* Main layout Grid */
+#todoGridParent
+{
+  padding:10px;
+  display:grid;
+  grid-gap:20px;
+  grid-template-areas:
+  'HeaderRoot'
+  'FundsSummaryRoot'
+  'ManageFundsRoot'
+  'ToolsBarRoot'
+  'FundsView'
+  'TodoView';
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+}
+
+
+#HeaderRoot
+{
+  grid-area: HeaderRoot;
+  //grid-row:1;
+  grid-column: 2/6;
+  background-color: var(--HeaderRoot-bk-color);
+  border-radius:15px;
+
+  display:grid;
+  grid-template-columns: 4fr 10fr 4fr;
+  grid-template-rows: 150px;
+
+  box-shadow: -8px -7px 10px 0px #ffffff, 7px 8px 20px 0px #dad9d9;
+
+}
+
+#HeaderRoot .App_Title{
+
+  grid-column: 2;
+  align-self: center;
+  justify-self: center;
+  font-size: 4.5em;
+  font-weight: 900;
+  letter-spacing: .55px;
+  color:var(--text-color);
+
+}
+.toggle-container{
+  grid-column: 3;
+  justify-self: end;
+  padding: 0px;
+  align-self: center;
+}
+#ManageFundsRoot
+{
+  grid-area:ManageFundsRoot;
+  //grid-row: 3;
+  grid-column: 2/6;
+  padding: 20px 30px;
+  min-height: 10vh;
+  background-color: var(--ManageFundsRoot-bk-color);
+  border-radius: 15px;
+  display: grid;
+  grid-template-columns: 100%;
+  box-shadow: -8px -7px 10px 0px #ffffff, 7px 8px 20px 0px #dad9d9;
+}
+
+
+#ToolsBarRoot{
+  grid-area: ToolsBarRoot;
+  //grid-row: 4;
+  grid-column: 2/6;
+  padding: 2px 30px;
+  background-color: var(--ToolsBarRoot-bk-color);
+  border-radius: 8px;
+  color: var(--primary-color);
+  font-size: 24px;
+}
+
+
+#item4
+{
+  grid-row:5;
+    grid-column: 2/6;
+  align-self:start;
+  background-color:transparent;
+}
+
+// Main Balance summary section
+
+
+
+
+
+
+.Toolbar{
+  height:2vh;
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  grid-gap: 20px;
+
+}
+.Toolbar div{
+
+  color:black;
+  font-size:1.1em;
+  font-weight:600;
+  letter-spacing:.5px;
+  align-self:center;
+}
+
+.btnCloseAddView{
+  justify-self: end;
+
+}
+.Toolbar div:nth-child(1){
+  grid-row:1;
+
+
+}
+.Toolbar div:nth-child(4){
+  grid-row:1;
+justify-self:end;
+
+}
+
+.Toolbar input{
+  font-size:1em;
+  text-align:bottom;
+  height:30px;
+  border:none;
+  border-radius:12px;
+  align-self:center;
+  padding:10px 15px;
+  background-color: #587a8e;
+}
+.Toolbar input:focus{
+
+  border:none;
+  outline:none;
+
+}
+.Toolbar input[name="NewFundName"]
+{
+
+
+
+}
+.Toolbar div:nth-child(3){
+
+}
+.Toolbar input[name="NewFundBalance"]
+{
+
+
+}
+
+#FundsView{
+  grid-area:FundsView;
+  //grid-row:4;
+  grid-column: 2/6;
+
+  background-color:transparent;
+
+  display:grid;
+  grid-template-columns:var(--ActsBox);
+
+  grid-gap:20px;
+}
+
+#todoViewContainer{
+  grid-area:TodoView;
+  grid-column: 2/6;
+  grid-template-columns:var(--ActsBox);
+ }
+
+/*Grocery*/
+
+.GroceryShoppingRow
+{
+  display:grid;
+  grid-template-rows:1fr 1fr;
+}
+.GroceryItem
+{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+
+
+
+.toggle {
+  position: relative;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+}
+
+input[type="checkbox"].checkbox {
+  width: 70px;
+  height: 10px;
+  background: #555;
+  position: relative;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  vertical-align: 2px;
+  outline: none;
+  padding: 6px 15px;
+}
+
+input[type="checkbox"].checkbox:checked + label {
+  left: 45px;
+}
+
+input[type="checkbox"].checkbox:focus-visible {
+  outline: solid 2px white;
+}
+
+input[type="checkbox"].checkbox + label {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  left: 2px;
+  background: #fff;
+  opacity: 0.9;
+  background-color: #2a7aa8;
+}
+
+.toggle-container {
+  display: flex;
+  margin: 0 auto;
+}
+
+.toggle-container > span {
+  font-size: 1.2em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-top: 4px;
+  margin-right: 2px;
+}
+
+.toggle-container > span:last-child {
+  margin-top: 5px;
+}
+
+
+
+.MuiFab-primary {
+  color: #fff;
+  background-color:#3f51b5 !important;
+  justify-self: end;
+}
+.MuiFab-primary:hover {
+  color: #c5c746;
+  background-color: #1b90cf!important;
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  #ManageFundsRoot {
+    grid-column: 1/7;
+    min-height: 39vh;
+
+  }
+  .Toolbar
+  {
+    height:32vh;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(100%,1fr));
+    grid-template-rows: 5fr 5fr 5fr 5fr 1fr 8fr;
+  }
+
+  #HeaderRoot
+  {
+    grid-column: 1/7;
+  }
+  #FundsSummaryRoot
+  {
+    grid-column: 1/7;
+  }
+  #FundsView{
+
+    grid-column: 1/7;
+  }
+  #item4
+  {
+    grid-column: 1/7;
+  }
+
+}
+
+.MuiIconButton-root{
+  width:fit-content;
+}
