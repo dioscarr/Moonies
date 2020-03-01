@@ -1,6 +1,4 @@
-import React, { useState, useContext } from 'react';
-import { db } from '../store/storeSettings';
-import { getInitialMode } from '../utility/Locals';
+import React from 'react';
 import './Home.css';
 
 const Home = () => {

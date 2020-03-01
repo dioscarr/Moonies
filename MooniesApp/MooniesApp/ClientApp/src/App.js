@@ -18,7 +18,7 @@ export default class App extends Component {
         return (
             <Layout>
                 <Route exact path='/' component={Home} />
-                <AuthorizeRoute path='/counter' component={Moonies} />
+                <AuthorizeRoute path='/account' component={Moonies} />
                 <AuthorizeRoute path='/fetch-data' component={FetchData} />
                 <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
             </Layout>
