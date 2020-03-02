@@ -10,13 +10,14 @@ const visible =
   , isBtnAddViewVisible: true
 }
 const dataTheme = {
-  light: ''
-  , dark: 'dark'
+  light: 'light'
+  , dark: ''
   , theme: ''
   , acts_list_layout: 'list'
   , acts_card_layout: 'card'
   , acts_theme: ''
 }
+
 
 const dataGroceryTodo = [
   { id: 1, CategoryId: 1, Name: 'Eggs', Budget: 20.80, Price: 5.00 },
@@ -28,12 +29,9 @@ const dataGroceryTodo = [
   { id: 7, CategoryId: 1, Name: 'Rice', Budget: 8.77, Price: 5.00 },
   { id: 8, CategoryId: 1, Name: 'Beans', Budget: .99, Price: 5.00 }];
 
-const AvailableFunds = [
-  { id: 1, Name: "Gift Card", Balance: 352, BalanceDate: '12/02/2019', isActive: true }
-  , { id: 2, Name: "Cash Savings", Balance: 840, BalanceDate: '12/02/2019', isActive: true }
-  , { id: 3, Name: "Bacnk Acct", Balance: 542, BalanceDate: '12/02/2019', isActive: true }
-  , { id: 4, Name: "Cash On Hand", Balance: 180, BalanceDate: '12/02/2019', isActive: true }
-];
+
+
+const AvailableFunds = [];
 
 const SummaryTotals =
 {

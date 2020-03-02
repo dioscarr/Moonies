@@ -19,7 +19,6 @@ export default class App extends Component {
             <Layout>
                 <Route exact path='/' component={Home} />
                 <AuthorizeRoute path='/account' component={Moonies} />
-                <AuthorizeRoute path='/fetch-data' component={FetchData} />
                 <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
             </Layout>
         );

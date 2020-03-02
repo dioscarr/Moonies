@@ -18,9 +18,9 @@ const Account = (props) => {
     function SendUpdate() {
         let updatedModel = {
             id: itm.id,
-            Name: itm.Name,
-            Balance: GetUpdatedBalance(itm.Balance),
-            BalanceDate: itm.BalanceDate
+            name: itm.Name,
+            balance: GetUpdatedBalance(itm.Balance),
+            balanceDate: itm.BalanceDate
             , isActive: itm.isActive
         }
         dispatch({ type: 'UPDATE', payload: updatedModel });
@@ -29,9 +29,9 @@ const Account = (props) => {
     function Delete() {
         let updatedModel = {
             id: itm.id,
-            Name: itm.Name,
-            Balance: itm.Balance,
-            BalanceDate: itm.BalanceDate
+            name: itm.Name,
+            balance: itm.Balance,
+            balanceDate: itm.BalanceDate
         }
         dispatch({ type: 'DELETE', payload: updatedModel })
         //setFields({Ibalance:''});
@@ -41,9 +41,9 @@ const Account = (props) => {
         const { isActive } = props;
         let updatedModel = {
             id: itm.id,
-            Name: itm.Name,
-            Balance: itm.Balance,
-            BalanceDate: itm.BalanceDate
+            name: itm.Name,
+            balance: itm.Balance,
+            balanceDate: itm.BalanceDate
             , isActive: isActive
         }
         dispatch({ type: 'UPDATE', payload: updatedModel });
@@ -53,13 +53,13 @@ const Account = (props) => {
     return (
         <div data-theme={state.dataTheme.theme} className="funditems">
             <div className="fundLName">
-                {itm.Name}
+                {itm.name}
             </div>
             <div className="fundLBalance">
-                ${parseFloat(itm.Balance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                ${parseFloat(itm.balance).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </div>
             <div className="fundLBalanceDate">
-                {itm.BalanceDate}
+                {itm.balanceDate}
             </div>
             <div className="fundIName">
                 <input type="text" name="Ibalance" onChange={setField} value={fields.Ibalance} />
@@ -75,8 +75,8 @@ const Account = (props) => {
                 </Fab>
             </div>
             <div className="isActiveToggle">
-                <ToggleItem id={`toggleItem${itm.id}`} isActive={itm.isActive} callBack={callback.bind(this)} />
             </div>
+                <ToggleItem id={`toggleItem${itm.id}`} isActive={itm.isActive} callBack={callback.bind(this)} />
         </div>
     );
 }

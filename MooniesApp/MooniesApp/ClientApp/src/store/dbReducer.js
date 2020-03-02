@@ -2,6 +2,8 @@ import { sum } from '../utility/utilities';
 
 const dbReducer = (state, action) => {
   switch (action.type) {
+    case 'SET_FUNDS':
+      return { ...state, AvailableFunds: action.payload.AvailableFunds }
     case 'CATSELECTION':
       let selections = state.Selections;
       selections.SelectedCategoryId = action.payload.id;

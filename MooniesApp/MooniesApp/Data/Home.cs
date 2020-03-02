@@ -8,5 +8,6 @@ namespace MooniesApp.Data
     public class Home
     {
         public int id { get; set; }
+        public string Content { get; set; }
     }
 }

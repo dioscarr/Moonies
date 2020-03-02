@@ -5,6 +5,7 @@ import { db } from './store/storeSettings';
 import dataCollections from './store/data';
 import dbReducer from './store/dbReducer';
 import { getInitialMode } from './utility/Locals';
+import authService from './components/api-authorization/AuthorizeService'
 
 
 
@@ -26,19 +27,37 @@ function Moonies() {
         localStorage.setItem('dark', JSON.stringify(darkMode));
         dispatch({ type: 'THEMEMODE', payload: { mode: darkMode } });
     }, [darkMode]);
+
     useEffect(() => {
         dispatch({ type: 'UPDATETOTALS' });
-
-
-
+        populateWeatherData();
     }, []);
+    const populateWeatherData = async () => {
+        debugger;
+        const token = await authService.getAccessToken();
+        console.log(token);
+        setTimeout(async function () {
+            debugger;
+            await fetch('api/ProfileAccount/GetAccount', {
+                headers: !token ? {} : { 'Authorization': `Bearer ${token}` }
+            }).then(r => {
+                debugger;
+                return r.json();
+            }).then(r => {
+                debugger;
+                dispatch({ type: 'SET_FUNDS', payload: { AvailableFunds: r.availableFunds } });
+            });
+        }, 5000);
+
+    }
+
     return (
         <db.Provider value={{ state, dispatch }} >
             <div data-theme={state.dataTheme.theme} id="todoGridParent" className={darkMode ? "Dark-Mode" : "Light-Mode"}>
                 {(state.visible.isHeaderVisible) && <Header />}
                 {(state.visible.isSummaryVisible) && (<div data-theme={state.dataTheme.theme} id="FundsSummaryRoot"><FundsSummary /></div>)}
-                {(state.visible.isAddViewVisible) && (<div data-theme={state.dataTheme.theme} id="ManageFundsRoot"><AddView /></div>)}
-                {(state.visible.isToolBarVisible) && (<div id="ToolsBarRoot"><ToolsBar /></div>)}
+                {/* {(state.visible.isAddViewVisible) && (<div data-theme={state.dataTheme.theme} id="ManageFundsRoot"><AddView /></div>)} */}
+                {/* {(state.visible.isToolBarVisible) && (<div id="ToolsBarRoot"><ToolsBar /></div>)} */}
                 {(state.visible.isAccountView) && (<div data-theme={state.dataTheme.theme} data-accounts-layout={state.dataTheme.acts_theme} id="FundsView" className="CollectionOfAvailFunds"><AccountsView /></div>)}
                 <div id="todoViewContainer">
                     {/* <TodoView /> */}

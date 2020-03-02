@@ -18,6 +18,7 @@ namespace MooniesApp.Data
         {
         }
         public DbSet<Home> Homes { get; set; }
+        public DbSet<AvailableFund> AvailableFunds {get; set; }
 
     }
 }
